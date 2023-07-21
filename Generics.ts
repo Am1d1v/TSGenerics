@@ -25,3 +25,12 @@ function log<T>(data:T): T{
 
 const res = log<number>(10); // Type Number
 const res1 = log<string>('10'); // Type String
+
+
+function getSplitedHalf<T>(data: Array<T>): Array<T>{
+    const l = data.length / 2;
+    return data.splice(0, l);
+}
+
+const arrRes = getSplitedHalf<number>([1, 2, 3, 4]);
+console.log(arrRes);

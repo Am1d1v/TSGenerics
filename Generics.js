@@ -21,3 +21,9 @@ function log(data) {
 }
 const res = log(10); // Type Number
 const res1 = log('10'); // Type String
+function getSplitedHalf(data) {
+    const l = data.length / 2;
+    return data.splice(0, l);
+}
+const arrRes = getSplitedHalf([1, 2, 3, 4]);
+console.log(arrRes);
