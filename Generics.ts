@@ -18,6 +18,8 @@ const check: Record<string, boolean> = {
 
 */
 
+/*
+
 function log<T>(data:T): T{
     console.log(data);
     return data;
@@ -35,8 +37,12 @@ function getSplitedHalf<T>(data: Array<T>): Array<T>{
 const arrRes = getSplitedHalf<number>([1, 2, 3, 4]);
 console.log(arrRes);
 
+*/
+
 
 // toString Function
+
+/*
 
 function toString<T>(data: T): string | undefined {
     if(Array. isArray(data)){
@@ -62,3 +68,32 @@ console.log(toString(3));
 console.log(toString(true));
 console.log(toString([1, 2, 3]));
 console.log(toString({a: 1}));
+
+*/
+
+function getSplitedHalf<T>(data: Array<T>): Array<T>{
+    const l = data.length / 2;
+    return data.splice(0, l);
+}
+
+const arrRes = getSplitedHalf<number>([1, 2, 3, 4]);
+
+const split: <T>(data: Array<T>) => Array<T> = getSplitedHalf;
+const split2: <Y>(data: Array<Y>) => Array<Y> = getSplitedHalf;
+
+interface IlogLine<T> {
+    timeStamp: Date;
+    data: T
+}
+
+type logLineType<T> = {
+    timeStamp: Date;
+    data: T
+}
+
+const logLine: IlogLine<{a: number}> = {
+    timeStamp: new Date(),
+    data: {
+        a: 1
+    }
+}

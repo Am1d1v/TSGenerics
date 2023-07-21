@@ -15,24 +15,35 @@ const check: Record<string, boolean> = {
 }
 
 */
-function log(data) {
+/*
+
+function log<T>(data:T): T{
     console.log(data);
     return data;
 }
-const res = log(10); // Type Number
-const res1 = log('10'); // Type String
-function getSplitedHalf(data) {
+
+const res = log<number>(10); // Type Number
+const res1 = log<string>('10'); // Type String
+
+
+function getSplitedHalf<T>(data: Array<T>): Array<T>{
     const l = data.length / 2;
     return data.splice(0, l);
 }
-const arrRes = getSplitedHalf([1, 2, 3, 4]);
+
+const arrRes = getSplitedHalf<number>([1, 2, 3, 4]);
 console.log(arrRes);
+
+*/
 // toString Function
-function toString(data) {
-    if (Array.isArray(data)) {
+/*
+
+function toString<T>(data: T): string | undefined {
+    if(Array. isArray(data)){
         return data.toString();
     }
-    switch (typeof data) {
+
+    switch (typeof data){
         case 'string':
             return data;
         case 'number':
@@ -46,7 +57,23 @@ function toString(data) {
             return undefined;
     }
 }
+
 console.log(toString(3));
 console.log(toString(true));
 console.log(toString([1, 2, 3]));
-console.log(toString({ a: 1 }));
+console.log(toString({a: 1}));
+
+*/
+function getSplitedHalf(data) {
+    const l = data.length / 2;
+    return data.splice(0, l);
+}
+const arrRes = getSplitedHalf([1, 2, 3, 4]);
+const split = getSplitedHalf;
+const split2 = getSplitedHalf;
+const logLine = {
+    timeStamp: new Date(),
+    data: {
+        a: 1
+    }
+};
