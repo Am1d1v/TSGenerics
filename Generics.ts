@@ -71,6 +71,8 @@ console.log(toString({a: 1}));
 
 */
 
+/*
+
 function getSplitedHalf<T>(data: Array<T>): Array<T>{
     const l = data.length / 2;
     return data.splice(0, l);
@@ -97,3 +99,25 @@ const logLine: IlogLine<{a: number}> = {
         a: 1
     }
 }
+
+*/
+
+class Vehicle {
+    run: number;
+}
+
+function kmtoMiles<T extends Vehicle>(vehicle: T): T{
+    vehicle.run = vehicle.run / 0.62
+    return vehicle
+}
+
+const vehicle = kmtoMiles(new Vehicle());
+
+
+function logId<T extends string | number >(id: T){
+    console.log(id);
+    return id
+}
+
+logId(10);
+

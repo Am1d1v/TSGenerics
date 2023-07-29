@@ -64,16 +64,45 @@ console.log(toString([1, 2, 3]));
 console.log(toString({a: 1}));
 
 */
-function getSplitedHalf(data) {
+/*
+
+function getSplitedHalf<T>(data: Array<T>): Array<T>{
     const l = data.length / 2;
     return data.splice(0, l);
 }
-const arrRes = getSplitedHalf([1, 2, 3, 4]);
-const split = getSplitedHalf;
-const split2 = getSplitedHalf;
-const logLine = {
+
+const arrRes = getSplitedHalf<number>([1, 2, 3, 4]);
+
+const split: <T>(data: Array<T>) => Array<T> = getSplitedHalf;
+const split2: <Y>(data: Array<Y>) => Array<Y> = getSplitedHalf;
+
+interface IlogLine<T> {
+    timeStamp: Date;
+    data: T
+}
+
+type logLineType<T> = {
+    timeStamp: Date;
+    data: T
+}
+
+const logLine: IlogLine<{a: number}> = {
     timeStamp: new Date(),
     data: {
         a: 1
     }
-};
+}
+
+*/
+class Vehicle {
+}
+function kmtoMiles(vehicle) {
+    vehicle.run = vehicle.run / 0.62;
+    return vehicle;
+}
+const vehicle = kmtoMiles(new Vehicle());
+function logId(id) {
+    console.log(id);
+    return id;
+}
+logId(10);
