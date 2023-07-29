@@ -94,16 +94,45 @@ const logLine: IlogLine<{a: number}> = {
 }
 
 */
+/*
+
 class Vehicle {
+    run: number;
 }
-function kmtoMiles(vehicle) {
-    vehicle.run = vehicle.run / 0.62;
-    return vehicle;
+
+function kmtoMiles<T extends Vehicle>(vehicle: T): T{
+    vehicle.run = vehicle.run / 0.62
+    return vehicle
 }
+
 const vehicle = kmtoMiles(new Vehicle());
-function logId(id, additionalData) {
+
+
+function logId<T extends string | number, Y>(id: T, additionalData: Y): {id: T, data: Y}{
     console.log(id);
     console.log(additionalData);
-    return { id, data: additionalData };
+    return {id, data: additionalData}
+
 }
+
 logId(10, 'someData');
+
+*/
+// Generic classes
+class Resp {
+    constructor(data, error) {
+        if (data) {
+            this.data = data;
+        }
+        if (error) {
+            this.error = error;
+        }
+    }
+}
+new Resp('data', 0);
+class HTTPResp extends Resp {
+    setCode(code) {
+        this.someCode = code;
+    }
+}
+const Resp2 = new HTTPResp();

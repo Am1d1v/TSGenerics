@@ -102,6 +102,8 @@ const logLine: IlogLine<{a: number}> = {
 
 */
 
+/*
+
 class Vehicle {
     run: number;
 }
@@ -123,3 +125,33 @@ function logId<T extends string | number, Y>(id: T, additionalData: Y): {id: T, 
 
 logId(10, 'someData');
 
+*/
+
+// Generic classes
+
+class Resp<D,E> {
+    data?: D;
+    error?: E;
+
+    constructor(data?: D, error?: E){
+        if(data){
+            this.data = data;
+        }
+        
+        if(error){
+            this.error = error;
+        }
+    }
+}
+
+new Resp<string, number>('data', 0);
+
+class HTTPResp<F> extends Resp<string, number> {
+    someCode: F;
+
+    setCode(code: F){
+        this.someCode = code;
+    }
+}
+
+const Resp2 = new HTTPResp();
