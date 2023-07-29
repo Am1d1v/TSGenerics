@@ -101,8 +101,9 @@ function kmtoMiles(vehicle) {
     return vehicle;
 }
 const vehicle = kmtoMiles(new Vehicle());
-function logId(id) {
+function logId(id, additionalData) {
     console.log(id);
-    return id;
+    console.log(additionalData);
+    return { id, data: additionalData };
 }
-logId(10);
+logId(10, 'someData');

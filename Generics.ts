@@ -114,10 +114,12 @@ function kmtoMiles<T extends Vehicle>(vehicle: T): T{
 const vehicle = kmtoMiles(new Vehicle());
 
 
-function logId<T extends string | number >(id: T){
+function logId<T extends string | number, Y>(id: T, additionalData: Y): {id: T, data: Y}{
     console.log(id);
-    return id
+    console.log(additionalData);
+    return {id, data: additionalData}
+
 }
 
-logId(10);
+logId(10, 'someData');
 
